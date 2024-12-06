@@ -1,5 +1,6 @@
-# read the input data
-with open('day02_input.txt') as f:
+import sys
+
+with open(sys.argv[1]) as f:
     data = f.read().splitlines()
     for i, x in enumerate(data):
         data[i] = x.split(' ')
