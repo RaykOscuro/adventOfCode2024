@@ -13,26 +13,28 @@ print(lastDo, lastDont, firstDoAfterLastDont)
 if lastDont > lastDo:
     data = data[0:lastDont]
 
-subStringsA = re.findall(r'^.*?don\'t\(\)', data)
-subStringsB = re.findall(r'do\(\).*?don\'t\(\)', data)
-subStringsC = [data[lastDo:]]
+nonMulStrings = re.findall(r'don\'t\(\).*?do\(\)', data)
 
-subStrings = subStringsA + subStringsB + subStringsC
+# subStringsA = re.findall(r'^.*?don\'t\(\)', data)
+# subStringsB = re.findall(r'do\(\).*?don\'t\(\)', data)
+# subStringsC = [data[lastDo:]]
 
-print(subStringsA)
+# subStrings = subStringsA + subStringsB + subStringsC
+
+# print(subStringsA)
 # print(subStringsB[0])
 # print(subStringsB[1])
 # print(subStringsB[2])
-print(subStringsC)
+# print(subStringsC)
 
-data = ''.join(subStrings)
+# data = ''.join(subStrings)
 
-# for nonMulString in nonMulStrings:
-#     newdata = data.replace(nonMulString, '')
+for nonMulString in nonMulStrings:
+    newdata = data.replace(nonMulString, 'xxxxxx')
 
-# print(data,newdata)
+print(data,newdata)
 
-mulStrings = re.findall(r'mul\([0-9]+,[0-9]+\)', data)
+mulStrings = re.findall(r'mul\([0-9]+,[0-9]+\)', newdata)
 
 def multiplier(mulString):
     return int(mulString[4:-1].split(',')[0])*int(mulString[4:-1].split(',')[1])

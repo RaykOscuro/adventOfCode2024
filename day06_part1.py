@@ -13,7 +13,7 @@ with open(sys.argv[1]) as f:
         for j, char in enumerate(x):
             if char == "^":
                 currentPos = [i,j]
-            gridData[i][j] = {"type": "." if char == "^" else char, "visited": [0,1] if char == "^" else False}
+            gridData[i][j] = {"type": "." if char == "^" else char, "visited": True if char == "^" else False}
 
 directions = [[-1,0],[0,1], [1,0], [0,-1]]
 currentDir = 0
